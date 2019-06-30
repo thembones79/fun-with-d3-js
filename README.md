@@ -1,3 +1,8 @@
+# Fun with D3 and React
+
+trying to solve a [D3 FCC challenges](https://learn.freecodecamp.org/data-visualization/data-visualization-with-d3/)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

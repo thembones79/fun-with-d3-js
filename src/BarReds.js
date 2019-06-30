@@ -17,7 +17,7 @@ class BarReds extends Component {
       .append("svg")
       .attr("width", w)
       .attr("height", h)
-      .attr("class", "redBar")
+      .attr("class", "firstBar")
       .style("margin-left", 100);
 
     svg
@@ -33,7 +33,7 @@ class BarReds extends Component {
   }
 
   render() {
-    return <div className="redBar" id="dupa" />;
+    return <div className="firstBar" id="dupa" />;
   }
 }
 
