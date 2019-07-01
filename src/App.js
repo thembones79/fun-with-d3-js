@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import BarChart from "./BarChart";
 import BarReds from "./BarReds";
+import FfcSvg1 from "./ffcSvg1";
 
 class App extends React.Component {
   state = {
@@ -12,11 +13,7 @@ class App extends React.Component {
     option: "BarChart"
   };
 
-  clickHandler = () => {
-    this.setState(
-      this.state.activeChart === 0 ? { activeChart: 1 } : { activeChart: 0 }
-    );
-  };
+
 
   handleChange = event => {
     this.setState({ option: event.target.value });
@@ -32,14 +29,14 @@ class App extends React.Component {
             height={this.state.height}
           />
         );
-     //   break;
+      //   break;
       case "BarReds":
         return <BarReds />;
       //  break;
 
-      case "y":
-        return <p>To be announced!</p>;
-       // break;
+      case "FfcSvg1":
+        return <FfcSvg1/>;
+      // break;
       default:
         return <p>Choose the chart from the list above.</p>;
     }
@@ -56,7 +53,7 @@ class App extends React.Component {
         >
           <option value="BarChart">BarChart</option>
           <option value="BarReds">BarReds</option>
-          <option value="y">Yoshi</option>
+          <option value="FfcSvg1">FfcSvg1</option>
         </select>
 
         <div id="dupa"> {this.chartRenderer()}</div>
