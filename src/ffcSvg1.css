@@ -1,0 +1,4 @@
+  .bar:hover {
+    fill: brown;
+    transition: .3s;
+  }
