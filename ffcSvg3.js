@@ -22,6 +22,17 @@ class FfcSvg3 extends Component {
 
     const w = 500;
     const h = 500;
+    const padding = 60;
+
+    const xScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(dataset, d => d[0])])
+      .range([padding, w - padding]);
+
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(dataset, d => d[1])])
+      .range([h - padding, padding]);
 
     const svg = d3
       .select("body")
@@ -34,18 +45,32 @@ class FfcSvg3 extends Component {
       .data(dataset)
       .enter()
       .append("circle")
-      .attr("cx", (d, i) => d[0])
-      .attr("cy", (d, i) => h - d[1])
-      .attr("r", 5);
+      .attr("cx", d => xScale(d[0]))
+      .attr("cy", d => yScale(d[1]))
+      .attr("r", d => 5);
 
     svg
       .selectAll("text")
       .data(dataset)
       .enter()
       .append("text")
-      .text(d => d[0] + ", " + d[1])
-      .attr("x", (d, i) => d[0] + 5)
-      .attr("y", (d, i) => h - d[1]);
+      .text(d => d[0] + "," + d[1])
+      .attr("x", d => xScale(d[0] + 10))
+      .attr("y", d => yScale(d[1]));
+
+    const xAxis = d3.axisBottom(xScale);
+
+    const yAxis = d3.axisLeft(yScale);
+
+    svg
+      .append("g")
+      .attr("transform", "translate(0," + (h - padding) + ")")
+      .call(xAxis);
+
+    svg
+      .append("g")
+      .attr("transform", "translate(" + padding + ",0)")
+      .call(yAxis);
   }
 
   render() {
