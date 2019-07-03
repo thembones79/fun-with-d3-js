@@ -23,6 +23,7 @@ class FfcSvg3 extends Component {
     const w = 500;
     const h = 500;
     const padding = 60;
+    d3.select("svg").remove();
 
     const xScale = d3
       .scaleLinear()
@@ -35,10 +36,12 @@ class FfcSvg3 extends Component {
       .range([h - padding, padding]);
 
     const svg = d3
-      .select("body")
+      .select("div#dupa")
       .append("svg")
       .attr("width", w)
-      .attr("height", h);
+      .attr("height", h)
+      .attr("class", "firstBar")
+      .style("margin-left", 100);
 
     svg
       .selectAll("circle")

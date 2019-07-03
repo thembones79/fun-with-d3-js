@@ -15,13 +15,15 @@
 
     const w = 500;
     const h = 100;
-
+d3.select("svg").remove();
 
      const svg = d3
-       .select("body")
+       .select("div#dupa")
        .append("svg")
        .attr("width", w)
-       .attr("height", h);
+       .attr("height", h)
+       .attr("class", "firstBar")
+       .style("margin-left", 100);
 
      svg
        .selectAll("rect")

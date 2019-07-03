@@ -3,7 +3,8 @@ import "./App.css";
 import BarChart from "./BarChart";
 import BarReds from "./BarReds";
 import FfcSvg1 from "./ffcSvg1";
-
+import FfcSvg2 from "./ffcSvg2";
+import FfcSvg3 from "./ffcSvg3";
 class App extends React.Component {
   state = {
     activeChart: 0,
@@ -35,8 +36,14 @@ class App extends React.Component {
       //  break;
 
       case "FfcSvg1":
-        return <FfcSvg1/>;
+        return <FfcSvg1 />;
       // break;
+
+      case "FfcSvg2":
+        return <FfcSvg2 />;
+
+      case "FfcSvg3":
+        return <FfcSvg3 />;
       default:
         return <p>Choose the chart from the list above.</p>;
     }
@@ -54,6 +61,8 @@ class App extends React.Component {
           <option value="BarChart">BarChart</option>
           <option value="BarReds">BarReds</option>
           <option value="FfcSvg1">FfcSvg1</option>
+          <option value="FfcSvg2">FfcSvg2</option>
+          <option value="FfcSvg3">FfcSvg3</option>
         </select>
 
         <div id="dupa"> {this.chartRenderer()}</div>
